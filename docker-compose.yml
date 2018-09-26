@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  neomoviescore:
+    image: ${DOCKER_REGISTRY}neomoviescore
+    build:
+      context: .
+      dockerfile: NeoMoviesCore\Dockerfile
