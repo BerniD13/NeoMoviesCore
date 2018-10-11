@@ -5,4 +5,16 @@ services:
     image: ${DOCKER_REGISTRY}neomoviescore
     build:
       context: .
-      dockerfile: NeoMoviesCore\Dockerfile
+      dockerfile: NeoMoviesCore/Dockerfile
+
+  database:
+    # use the official Neo4j container.
+    image: neo4j
+    # expose the pertinant Neo4j ports to the host machine (for now, theoretically could only be exposed to the neomoviescore container).
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    # copy the database and authentication info from our repo to the new container. Database can now be accessed as if running on host machine normally.
+    volumes:
+      - "./Database/data:/data"
+      - "./Database/logs:/logs"

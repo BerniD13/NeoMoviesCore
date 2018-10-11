@@ -14,9 +14,9 @@ namespace NeoMoviesCore.Common.Repositories
 
         public MovieRepository()
         {
-            var url = @"http://gateway.docker.internal:7474/db/data"; //ConfigurationManager.AppSettings["GraphDBUrl"];
+            var url = @"http://database:7474/db/data"; //ConfigurationManager.AppSettings["GraphDBUrl"];
             var user = "neo4j"; //ConfigurationManager.AppSettings["GraphDBUser"];
-            var password = "Graph"; //ConfigurationManager.AppSettings["GraphDBPassword"];
+            var password = "movies"; //ConfigurationManager.AppSettings["GraphDBPassword"];
             var client = new GraphClient(new Uri(url), user, password);
             client.Connect();     
             GraphClient = client;

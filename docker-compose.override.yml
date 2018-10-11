@@ -5,7 +5,19 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "80"
+      - "8080:80"
+
+  database:
+    # use the official Neo4j container
+    image: neo4j
+    # expose the neo4j ports to the host (host computer for now, theoretically only needs to expose to the neomoviescore container)
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    # copy the movies database from our repo to the new container. This container now hosts the Movies database and can be accessed as if running locally.
+    volumes:
+      - "./Database/data:/data"
+      - "./Database/logs:/logs"
 
 networks:
   default:

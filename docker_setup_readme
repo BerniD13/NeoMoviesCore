@@ -1,0 +1,19 @@
+To build and run the NeoMoviesCore solution using Neo4j Docker container, the following steps must be taken first.
+
+Docker Setup
+1) Install Docker for your OS
+2) Switch to Linux containers
+3) In Docker's settings, enable 'Shared Drives' for the drive that contains your repository.
+	--- If you pulled to "C:\Repositories\NeoMoviesCore", enable drive sharing for C
+4) From a command prompt, run `docker network create nat`.
+
+Visual Studio Setup
+1) Open the Visual Studio Installer. Click "Modify" for your installed version of Visual Studio 2017. Verify (at least) the following components are selected:
+	- .NET Desktop Development
+	- ASP.NET and web development
+	- .NET Core cross-platform development
+   Install if necessary.
+1) Open the NeoMoviesCore solution.
+2) Make sure your Nuget Packages are up to date for the solution.
+3) Set your debug application as "docker-compose".
+4) You should now be able to debug the application.

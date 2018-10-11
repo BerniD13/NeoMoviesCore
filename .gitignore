@@ -259,3 +259,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+# Neo4j Database files
+# Intentional changes to Neo4j graph must be manually force-tracked.
+Database/data/databases/*
+DataBase/logs/*
