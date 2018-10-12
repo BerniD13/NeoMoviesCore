@@ -14,7 +14,7 @@ namespace NeoMoviesCore.Controllers
     public class SearchController : Controller
     {
         private readonly IMovieRepository _repo;
-        
+
         public SearchController(IMovieRepository repo)
         {
             _repo = repo;

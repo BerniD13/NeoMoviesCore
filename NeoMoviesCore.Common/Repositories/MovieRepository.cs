@@ -5,6 +5,7 @@ using System.Text;
 using System.Configuration;
 using NeoMoviesCore.Common.Model;
 using Neo4jClient;
+using Microsoft.Extensions.Options;
 
 namespace NeoMoviesCore.Common.Repositories
 {
@@ -12,11 +13,11 @@ namespace NeoMoviesCore.Common.Repositories
     {
         private static IGraphClient GraphClient { get; set; }
 
-        public MovieRepository()
+        public MovieRepository(IOptions<DatabaseSettings> dbSettings)
         {
-            var url = @"http://database:7474/db/data"; //ConfigurationManager.AppSettings["GraphDBUrl"];
-            var user = "neo4j"; //ConfigurationManager.AppSettings["GraphDBUser"];
-            var password = "movies"; //ConfigurationManager.AppSettings["GraphDBPassword"];
+            var url = dbSettings.Value.GraphDBUrl; 
+            var user = dbSettings.Value.GraphDBUser; 
+            var password = dbSettings.Value.GraphDBPassword;
             var client = new GraphClient(new Uri(url), user, password);
             client.Connect();     
             GraphClient = client;
