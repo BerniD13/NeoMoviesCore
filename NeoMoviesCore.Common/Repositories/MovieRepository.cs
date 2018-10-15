@@ -23,6 +23,11 @@ namespace NeoMoviesCore.Common.Repositories
             GraphClient = client;
         }
 
+        public void CreateNewMovie(Movie m)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Movie> GetMoviesByActor(string actor)
         {
             throw new NotImplementedException();
@@ -44,5 +49,6 @@ namespace NeoMoviesCore.Common.Repositories
 
             return data;
         }
+
     }
 }
