@@ -7,10 +7,6 @@ namespace NeoMoviesCore.Common.Repositories
 {
     class InMemoryMovieRepository : IMovieRepository
     {
-        public void CreateNewMovie(Movie m)
-        {
-            throw new NotImplementedException();
-        }
         public IEnumerable<Movie> SearchMoviesByString(string s)
         {
             var movieList = new List<Movie>();
@@ -49,6 +45,21 @@ namespace NeoMoviesCore.Common.Repositories
             movieList.Add(testMovie);
 
             return movieList;
+        }
+
+        public void CreateNewMovie(Movie m)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateMovie(Movie m)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteMovie(Movie m)
+        {
+            throw new NotImplementedException();
         }
     }
 }

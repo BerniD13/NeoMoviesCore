@@ -23,11 +23,6 @@ namespace NeoMoviesCore.Common.Repositories
             GraphClient = client;
         }
 
-        public void CreateNewMovie(Movie m)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Movie> GetMoviesByActor(string actor)
         {
             throw new NotImplementedException();
@@ -50,5 +45,22 @@ namespace NeoMoviesCore.Common.Repositories
             return data;
         }
 
+        public void CreateNewMovie(Movie m) // Currently does not show up at ~/api/search since no actors in it
+        {
+            GraphClient.Cypher
+                .Create("(:Movie {m})")
+                .WithParam("m", m)
+                .ExecuteWithoutResults();
+        }
+
+        public void UpdateMovie(Movie m)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteMovie(Movie m)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
