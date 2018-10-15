@@ -1,50 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using NeoMoviesCore.Common.Model;
 
 namespace NeoMoviesCore.Common.Repositories
 {
-    class InMemoryMovieRepository : IMovieRepository
+    public class InMemoryMovieRepository : IMovieRepository
     {
-        public IEnumerable<Movie> SearchMoviesByString(string s)
+        private List<Movie> movies;
+
+        public InMemoryMovieRepository()
         {
-            var movieList = new List<Movie>();
+            movies = new List<Movie>();
 
             var testMovie = new Movie();
-            testMovie.title = "Movie";
+            testMovie.title = "John's Movie";
             testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + s;
+            testMovie.tagline = "Test Movie";
 
-            movieList.Add(testMovie);
-
-            return movieList;
+            movies.Add(testMovie);
+        }
+        public IEnumerable<Movie> SearchMoviesByString(string s)
+        {
+            var queryMovies = from movie in movies
+                              where movie.title.Contains(s) || movie.tagline.Contains(s)
+                              select movie;
+            return queryMovies;
         }
         public IEnumerable<Movie> GetMoviesByTitle(string title)
         {
-            var movieList = new List<Movie>();
-
-            var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + title;
-
-            movieList.Add(testMovie);
-
-            return movieList;
+            var queryMovies = from movie in movies
+                              where movie.title.Contains(title)
+                              select movie;
+            return queryMovies;
         }
         public IEnumerable<Movie> GetMoviesByActor(string actor)
         {
-            var movieList = new List<Movie>();
-
-            var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + actor;
-
-            movieList.Add(testMovie);
-
-            return movieList;
+            throw new NotImplementedException();
         }
 
         public void CreateNewMovie(Movie m)
