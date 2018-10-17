@@ -13,20 +13,14 @@ namespace NeoMoviesCore.Common.Repositories
         public InMemoryMovieRepository()
         {
             movies = new List<Movie>();
-
-            var testMovie = new Movie();
-            testMovie.title = "John's Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test Movie";
-
-            movies.Add(testMovie);
         }
         public IEnumerable<Movie> SearchMoviesByString(string s)
         {
             var queryMovies = from movie in movies
                               where movie.title.Contains(s) || movie.tagline.Contains(s)
                               select movie;
-            return queryMovies;
+            //return queryMovies;
+            return movies;
         }
         public IEnumerable<Movie> GetMoviesByTitle(string title)
         {
@@ -45,14 +39,20 @@ namespace NeoMoviesCore.Common.Repositories
             movies.Add(m);
         }
 
-        public void UpdateMovie(Movie m)
+        public void UpdateMovie(int id, Movie m)
         {
-            throw new NotImplementedException();
+            if (id < movies.Count())
+            {
+                movies[id] = m;
+            }
         }
 
-        public void DeleteMovie(Movie m)
+        public void DeleteMovie(int id)
         {
-            throw new NotImplementedException();
+            if (id < movies.Count())
+            {
+                movies.RemoveAt(id);
+            }
         }
     }
 }

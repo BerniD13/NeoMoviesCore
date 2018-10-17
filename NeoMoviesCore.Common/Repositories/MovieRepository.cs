@@ -53,12 +53,12 @@ namespace NeoMoviesCore.Common.Repositories
                 .ExecuteWithoutResults();
         }
 
-        public void UpdateMovie(Movie m)
+        public void UpdateMovie(int id, Movie m)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteMovie(Movie m)
+        public void DeleteMovie(int id)
         {
             throw new NotImplementedException();
         }

@@ -11,7 +11,7 @@ namespace NeoMoviesCore.Common.Repositories
         IEnumerable<Movie> GetMoviesByTitle(string title);
         IEnumerable<Movie> GetMoviesByActor(string actor);
         void CreateMovie(Movie m);
-        void UpdateMovie(Movie m);
-        void DeleteMovie(Movie m);
+        void UpdateMovie(int id, Movie m);
+        void DeleteMovie(int id);
     }
 }
