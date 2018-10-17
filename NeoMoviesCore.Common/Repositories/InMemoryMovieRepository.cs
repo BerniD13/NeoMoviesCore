@@ -7,6 +7,20 @@ namespace NeoMoviesCore.Common.Repositories
 {
     class InMemoryMovieRepository : IMovieRepository
     {
+        public IEnumerable<Movie> AddMovie(IEnumerable<Movie> movie)
+        {
+            var movieList = new List<Movie>();
+
+            var testMovie = new Movie();
+            testMovie.title = "Movie";
+            testMovie.released = 2000;
+            testMovie.tagline = "Test movie, searched string: ";
+
+            movieList.Add(testMovie);
+
+            return movieList;
+        }
+
         public IEnumerable<Movie> SearchMoviesByString(string s)
         {
             var movieList = new List<Movie>();

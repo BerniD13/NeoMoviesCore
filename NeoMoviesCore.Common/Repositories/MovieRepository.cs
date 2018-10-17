@@ -44,5 +44,11 @@ namespace NeoMoviesCore.Common.Repositories
 
             return data;
         }
+
+        public IEnumerable<Movie> AddMovie(IEnumerable<Movie> movie)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
