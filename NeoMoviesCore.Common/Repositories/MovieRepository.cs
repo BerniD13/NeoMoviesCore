@@ -15,9 +15,14 @@ namespace NeoMoviesCore.Common.Repositories
 
         public MovieRepository(IOptions<DatabaseSettings> dbSettings)
         {
-            var url = dbSettings.Value.GraphDBUrl; 
-            var user = dbSettings.Value.GraphDBUser; 
-            var password = dbSettings.Value.GraphDBPassword;
+			var url = dbSettings.Value.GraphDBUrl;
+			var user = dbSettings.Value.GraphDBUser;
+			var password = dbSettings.Value.GraphDBPassword;
+			/*
+			var url = "http://localhost:7474/db/data";
+			var user = "neo4j"; 
+            var password = "movies";
+			*/
             var client = new GraphClient(new Uri(url), user, password);
             client.Connect();     
             GraphClient = client;
@@ -44,5 +49,17 @@ namespace NeoMoviesCore.Common.Repositories
 
             return data;
         }
-    }
+
+		public IEnumerable<Movie> SearchMoviesById(int id)
+		{
+			var data = GraphClient.Cypher
+			   .Match("(m:Movie)")
+			   .Where("ID(m) = {query}")
+			   .WithParam("query", id)
+			   .Return<Movie>("m")
+			   .Results.ToList();
+
+			return data;
+		}
+	}
 }

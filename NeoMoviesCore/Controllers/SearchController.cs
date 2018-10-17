@@ -29,10 +29,10 @@ namespace NeoMoviesCore.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<Movie> Get(int id)
         {
-            return "value";
-        }
+			return _repo.SearchMoviesById(id);
+		}
 
         // POST api/<controller>
         [HttpPost]
