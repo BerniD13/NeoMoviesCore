@@ -40,9 +40,9 @@ namespace NeoMoviesCore.Common.Repositories
             throw new NotImplementedException();
         }
 
-        public void CreateNewMovie(Movie m)
+        public void CreateMovie(Movie m)
         {
-            throw new NotImplementedException();
+            movies.Add(m);
         }
 
         public void UpdateMovie(Movie m)

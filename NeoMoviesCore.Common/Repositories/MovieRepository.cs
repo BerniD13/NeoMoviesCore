@@ -45,7 +45,7 @@ namespace NeoMoviesCore.Common.Repositories
             return data;
         }
 
-        public void CreateNewMovie(Movie m) // Currently does not show up at ~/api/search since no actors in it
+        public void CreateMovie(Movie m) // Currently does not show up at ~/api/search since no actors in it
         {
             GraphClient.Cypher
                 .Create("(:Movie {m})")

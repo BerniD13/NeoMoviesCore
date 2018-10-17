@@ -10,7 +10,7 @@ namespace NeoMoviesCore.Common.Repositories
         IEnumerable<Movie> SearchMoviesByString(string s);
         IEnumerable<Movie> GetMoviesByTitle(string title);
         IEnumerable<Movie> GetMoviesByActor(string actor);
-        void CreateNewMovie(Movie m);
+        void CreateMovie(Movie m);
         void UpdateMovie(Movie m);
         void DeleteMovie(Movie m);
     }
