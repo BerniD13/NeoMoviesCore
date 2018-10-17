@@ -50,7 +50,7 @@ namespace NeoMoviesCore.Common.Repositories
         {
             throw new NotImplementedException();
         }
-
+        // SearchController
         public IEnumerable<Movie> SearchMoviesById(int id)
         {
             var data = GraphClient.Cypher
@@ -61,6 +61,25 @@ namespace NeoMoviesCore.Common.Repositories
                .Results.ToList();
 
             return data;
+        }
+
+        //CRUD operations
+        public void CreateMovie(Movie m) // Currently does not show up at ~/api/search since no actors in it
+        {
+            GraphClient.Cypher
+                .Create("(:Movie {m})")
+                .WithParam("m", m)
+                .ExecuteWithoutResults();
+        }
+
+        public void UpdateMovie(Movie m)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteMovie(Movie m)
+        {
+            throw new NotImplementedException();
         }
 
     }
