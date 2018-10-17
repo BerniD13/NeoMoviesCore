@@ -12,9 +12,9 @@ namespace NeoMoviesCore.Common.Repositories
             var movieList = new List<Movie>();
 
             var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + s;
+            testMovie.Title = "Movie";
+            testMovie.Released = 2000;
+            testMovie.Tagline = "Test movie, searched string: " + s;
 
             movieList.Add(testMovie);
 
@@ -25,26 +25,31 @@ namespace NeoMoviesCore.Common.Repositories
             var movieList = new List<Movie>();
 
             var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + title;
+            testMovie.Title = "Movie";
+            testMovie.Released = 2000;
+            testMovie.Tagline = "Test movie, searched string: " + title;
 
             movieList.Add(testMovie);
 
             return movieList;
         }
-        public IEnumerable<Movie> GetMoviesByActor(string actor)
+        public IEnumerable<Movie> GetMoviesByActorName(string name)
         {
             var movieList = new List<Movie>();
 
             var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + actor;
+            testMovie.Title = "Movie";
+            testMovie.Released = 2000;
+            testMovie.Tagline = "Test movie, searched string: " + name;
 
             movieList.Add(testMovie);
 
             return movieList;
+        }
+
+        public IEnumerable<Movie> GetMoviesByActor(Actor actor)
+        {
+            return GetMoviesByActorName(actor.Name);
         }
     }
 }
