@@ -45,9 +45,22 @@ namespace NeoMoviesCore.Common.Repositories
             return data;
         }
 
+        //+++
         public IEnumerable<Movie> AddMovie(IEnumerable<Movie> movie)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Movie> SearchMoviesById(int id)
+        {
+            var data = GraphClient.Cypher
+               .Match("(m:Movie)")
+               .Where("ID(m) = {query}")
+               .WithParam("query", id)
+               .Return<Movie>("m")
+               .Results.ToList();
+
+            return data;
         }
 
     }

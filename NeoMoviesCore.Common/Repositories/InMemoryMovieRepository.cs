@@ -60,5 +60,20 @@ namespace NeoMoviesCore.Common.Repositories
 
             return movieList;
         }
+
+        //+++
+        public IEnumerable<Movie> SearchMoviesById(int id)
+        {
+            var movieList = new List<Movie>();
+
+            var testMovie = new Movie();
+            testMovie.title = "Movie";
+            testMovie.released = 2000;
+            testMovie.tagline = "Test movie, searched string: " + id;
+
+            movieList.Add(testMovie);
+
+            return movieList;
+        }
     }
 }
