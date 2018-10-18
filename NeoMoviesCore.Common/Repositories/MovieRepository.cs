@@ -15,11 +15,11 @@ namespace NeoMoviesCore.Common.Repositories
 
         public MovieRepository(IOptions<DatabaseSettings> dbSettings)
         {
-            var url = dbSettings.Value.GraphDBUrl; 
-            var user = dbSettings.Value.GraphDBUser; 
+            var url = dbSettings.Value.GraphDBUrl;
+            var user = dbSettings.Value.GraphDBUser;
             var password = dbSettings.Value.GraphDBPassword;
             var client = new GraphClient(new Uri(url), user, password);
-            client.Connect();     
+            client.Connect();
             GraphClient = client;
         }
 
@@ -55,12 +55,23 @@ namespace NeoMoviesCore.Common.Repositories
 
         public void UpdateMovie(int id, Movie m)
         {
-            throw new NotImplementedException();
+            GraphClient.Cypher
+                .Match("(movie:Movie)")
+                .Where("ID(movie) = {query}")
+                .WithParam("query", id)
+                .Set("movie = {new_movie}")
+                .WithParam("new_movie", m)
+                .ExecuteWithoutResults();
         }
 
         public void DeleteMovie(int id)
         {
-            throw new NotImplementedException();
+            GraphClient.Cypher
+                .Match("(movie:Movie)")
+                .Where("ID(movie) = {query}")
+                .WithParam("query", id)
+                .DetachDelete("movie")
+                .ExecuteWithoutResults();
         }
     }
 }
