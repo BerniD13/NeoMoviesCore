@@ -72,14 +72,31 @@ namespace NeoMoviesCore.Common.Repositories
                 .ExecuteWithoutResults();
         }
 
-        public void UpdateMovie(Movie m)
+        public Movie ReadMovie(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteMovie(Movie m)
+
+        public void UpdateMovie(int id, Movie m)
         {
-            throw new NotImplementedException();
+            GraphClient.Cypher
+                .Match("(cur_m:Movie)")
+                .Where("ID(cur_m) = {query}")
+                .WithParam("query", id)
+                .Set("cur_m = {m}")
+                .ExecuteWithoutResults();
+        }
+
+        public void DeleteMovie(int id)
+        {
+            GraphClient.Cypher
+                .Match("(m:Movie)")
+                .Where("ID(m) = {query}")
+                .WithParam("query", id)
+                .Delete("m")
+                .ExecuteWithoutResults();
+            //throw new NotImplementedException();
         }
 
     }

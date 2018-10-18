@@ -12,15 +12,17 @@ namespace NeoMoviesCore.Common.Repositories
         IEnumerable<Movie> SearchMoviesByString(string s);
         IEnumerable<Movie> GetMoviesByTitle(string title);
         IEnumerable<Movie> GetMoviesByActor(string actor);
-        
+
         // SearchController
         IEnumerable<Movie> SearchMoviesById(int id);
+
         // MovieController - temporary for now
         IEnumerable<Movie> AddMovie(IEnumerable<Movie> movie);
 
         // Add CRUD operations
         void CreateMovie(Movie m);
-        void UpdateMovie(Movie m);
-        void DeleteMovie(Movie m);
+        Movie ReadMovie(int id);
+        void UpdateMovie(int id, Movie m);
+        void DeleteMovie(int id);
     }
 }

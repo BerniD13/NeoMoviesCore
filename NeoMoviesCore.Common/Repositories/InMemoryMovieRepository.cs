@@ -97,14 +97,29 @@ namespace NeoMoviesCore.Common.Repositories
             movies.Add(m);
         }
 
-        public void UpdateMovie(Movie m)
+        public Movie ReadMovie(int id)
         {
-            throw new NotImplementedException();
+            var readAMovie = new Movie();
+            // not implemented yet
+            var movieList = SearchMoviesById(id);
+
+            return readAMovie;
         }
 
-        public void DeleteMovie(Movie m)
+        public void UpdateMovie(int id, Movie m)
         {
-            throw new NotImplementedException();
+            foreach (Movie movie in SearchMoviesById(id))
+            {
+                movies[id] = m;
+            }
+        }
+
+        public void DeleteMovie(int id)
+        {
+            foreach (Movie movie in SearchMoviesById(id))
+            {
+                movies.RemoveAt(id);
+            }
         }
     }
 }

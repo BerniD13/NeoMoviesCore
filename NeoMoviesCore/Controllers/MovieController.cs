@@ -35,10 +35,11 @@ namespace NeoMoviesCore.Controllers
             return "value";
         }
 
-        // POST: api/Movies
+        // POST: api/movies
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Movie movie)
         {
+            _repo.CreateMovie(movie);
         }
 
         // AddMovie: api/Movies
@@ -46,20 +47,23 @@ namespace NeoMoviesCore.Controllers
         public void AddMovie([FromBody] IEnumerable<Movie> movie)
         {
             // ???
-            _repo.AddMovie(movie);
+            //_repo.AddMovie(movie);
+
         }
 
 
         // PUT: api/Movie/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Movie movie)
         {
+            _repo.CreateMovie(movie);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _repo.DeleteMovie(id);
         }
     }
 }
