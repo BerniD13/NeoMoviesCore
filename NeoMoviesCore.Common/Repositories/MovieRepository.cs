@@ -23,7 +23,7 @@ namespace NeoMoviesCore.Common.Repositories
             GraphClient = client;
         }
 
-        public IEnumerable<Movie> GetMoviesByActor(Actor actor)
+        public IEnumerable<Movie> GetMoviesByActor(string name)
         {
             return GetMoviesByActorName(actor.Name);
         }
