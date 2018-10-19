@@ -33,23 +33,18 @@ namespace NeoMoviesCore.Common.Repositories
 
             return movieList;
         }
-        public IEnumerable<Movie> GetMoviesByActorName(string name)
+        public IEnumerable<Movie> GetMoviesByActor(string actor)
         {
             var movieList = new List<Movie>();
 
             var testMovie = new Movie();
             testMovie.Title = "Movie";
             testMovie.Released = 2000;
-            testMovie.Tagline = "Test movie, searched string: " + name;
+            testMovie.Tagline = "Test movie, searched string: " + actor;
 
             movieList.Add(testMovie);
 
             return movieList;
-        }
-
-        public IEnumerable<Movie> GetMoviesByActor(Actor actor)
-        {
-            return GetMoviesByActorName(actor.Name);
         }
     }
 }

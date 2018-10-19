@@ -23,17 +23,12 @@ namespace NeoMoviesCore.Common.Repositories
             GraphClient = client;
         }
 
-        public IEnumerable<Movie> GetMoviesByActor(string name)
-        {
-            return GetMoviesByActorName(actor.Name);
-        }
-
-        public IEnumerable<Movie> GetMoviesByActorName(string name)
+        public IEnumerable<Movie> GetMoviesByActor(string actor)
         {
             var data = GraphClient.Cypher
                .Match("(m:Movie)<-[:ACTED_IN]-(p:Person)")
                .Where("p.name =~ {query}")
-               .WithParam("query", "(?i).*" + name + ".*")
+               .WithParam("query", "(?i).*" + actor + ".*")
                .Return<Movie>("distinct m")
                .Results.ToList();
 
