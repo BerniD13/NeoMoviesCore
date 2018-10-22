@@ -264,3 +264,4 @@ __pycache__/
 # Intentional changes to Neo4j graph must be manually force-tracked.
 Database/data/databases/*
 DataBase/logs/*
+/NeoMoviesCore/graph.json
