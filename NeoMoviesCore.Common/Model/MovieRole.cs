@@ -16,11 +16,9 @@ namespace NeoMoviesCore.Common.Model
 
     public class DirectorRole : MovieRole
     {
-
     }
 
     public class ProducerRole : MovieRole
     {
-
     }
 }

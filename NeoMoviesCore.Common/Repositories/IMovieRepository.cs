@@ -9,7 +9,6 @@ namespace NeoMoviesCore.Common.Repositories
     {
         IEnumerable<Movie> SearchMoviesByString(string s);
         IEnumerable<Movie> GetMoviesByTitle(string title);
-        IEnumerable<Movie> GetMoviesByActorName(string name);
-        IEnumerable<Movie> GetMoviesByActor(Actor actor);
+        IEnumerable<Movie> GetMoviesByActor(string actor);
     }
 }
