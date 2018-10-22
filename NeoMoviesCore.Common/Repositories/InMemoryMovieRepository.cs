@@ -14,14 +14,22 @@ namespace NeoMoviesCore.Common.Repositories
         {
             movies = new List<Movie>();
         }
+
+        public IEnumerable<Movie> GetAllMovies()
+        {
+            return movies;
+        }
+
+
         public IEnumerable<Movie> SearchMoviesByString(string s)
         {
             var queryMovies = from movie in movies
                               where movie.title.Contains(s) || movie.tagline.Contains(s)
                               select movie;
-            //return queryMovies;
-            return movies;
+           
+            return queryMovies;
         }
+
         public IEnumerable<Movie> GetMoviesByTitle(string title)
         {
             var queryMovies = from movie in movies
@@ -29,6 +37,8 @@ namespace NeoMoviesCore.Common.Repositories
                               select movie;
             return queryMovies;
         }
+
+
         public IEnumerable<Movie> GetMoviesByActor(string actor)
         {
             throw new NotImplementedException();
