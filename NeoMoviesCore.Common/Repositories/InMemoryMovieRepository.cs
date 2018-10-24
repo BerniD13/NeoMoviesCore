@@ -6,7 +6,7 @@ using NeoMoviesCore.Common.Model;
 
 namespace NeoMoviesCore.Common.Repositories
 {
-    class InMemoryMovieRepository : IMovieRepository
+    public class InMemoryMovieRepository : IMovieRepository
     {   
         // Private movie list.
         private List<Movie> movies;
@@ -14,6 +14,16 @@ namespace NeoMoviesCore.Common.Repositories
         public InMemoryMovieRepository()
         {
             movies = new List<Movie>();
+        }
+
+        public InMemoryMovieRepository(List<Movie> m)
+        {
+            movies = m;
+        }
+
+        public IEnumerable<Movie> GetAllMovies()
+        {
+            return movies;
         }
 
         public IEnumerable<Movie> SearchMoviesByString(string s)
