@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using NeoMoviesCore.Common.Model;
 
@@ -13,55 +14,25 @@ namespace NeoMoviesCore.Common.Repositories
         public InMemoryMovieRepository()
         {
             movies = new List<Movie>();
-
-            var testMovie = new Movie();
-            testMovie.title = "John's Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test Movie";
-
-            movies.Add(testMovie);
-        }
-        // Temporary for now
-        public IEnumerable<Movie> AddMovie(IEnumerable<Movie> movie)
-        {
-            var movieList = new List<Movie>();
-
-            var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: ";
-
-            movieList.Add(testMovie);
-
-            return movieList;
         }
 
         public IEnumerable<Movie> SearchMoviesByString(string s)
         {
-            var movieList = new List<Movie>();
+            var queryMovies = from movie in movies
+                              where movie.title.Contains(s) || movie.tagline.Contains(s)
+                              select movie;
 
-            var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + s;
-
-            movieList.Add(testMovie);
-
-            return movieList;
+            return queryMovies;
         }
+
         public IEnumerable<Movie> GetMoviesByTitle(string title)
         {
-            var movieList = new List<Movie>();
-
-            var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + title;
-
-            movieList.Add(testMovie);
-
-            return movieList;
+            var queryMovies = from movie in movies
+                              where movie.title.Contains(title)
+                              select movie;
+            return queryMovies;
         }
+
         public IEnumerable<Movie> GetMoviesByActor(string actor)
         {
             var movieList = new List<Movie>();
@@ -95,15 +66,6 @@ namespace NeoMoviesCore.Common.Repositories
         public void CreateMovie(Movie m)
         {
             movies.Add(m);
-        }
-
-        public Movie ReadMovie(int id)
-        {
-            var readAMovie = new Movie();
-            // not implemented yet
-            var movieList = SearchMoviesById(id);
-
-            return readAMovie;
         }
 
         public void UpdateMovie(int id, Movie m)

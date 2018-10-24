@@ -7,8 +7,7 @@ namespace NeoMoviesCore.Common.Repositories
 {
     public interface IMovieRepository
     {
-        // Not sure what adding do yet.
-        
+        // ReadMovie
         IEnumerable<Movie> SearchMoviesByString(string s);
         IEnumerable<Movie> GetMoviesByTitle(string title);
         IEnumerable<Movie> GetMoviesByActor(string actor);
@@ -16,12 +15,8 @@ namespace NeoMoviesCore.Common.Repositories
         // SearchController
         IEnumerable<Movie> SearchMoviesById(int id);
 
-        // MovieController - temporary for now
-        IEnumerable<Movie> AddMovie(IEnumerable<Movie> movie);
-
         // Add CRUD operations
         void CreateMovie(Movie m);
-        Movie ReadMovie(int id);
         void UpdateMovie(int id, Movie m);
         void DeleteMovie(int id);
     }

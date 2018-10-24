@@ -45,11 +45,6 @@ namespace NeoMoviesCore.Common.Repositories
             return data;
         }
 
-        //+++
-        public IEnumerable<Movie> AddMovie(IEnumerable<Movie> movie)
-        {
-            throw new NotImplementedException();
-        }
         // SearchController
         public IEnumerable<Movie> SearchMoviesById(int id)
         {
@@ -64,7 +59,7 @@ namespace NeoMoviesCore.Common.Repositories
         }
 
         //CRUD operations
-        public void CreateMovie(Movie m) // Currently does not show up at ~/api/search since no actors in it
+        public void CreateMovie(Movie m)
         {
             GraphClient.Cypher
                 .Create("(:Movie {m})")
@@ -72,19 +67,14 @@ namespace NeoMoviesCore.Common.Repositories
                 .ExecuteWithoutResults();
         }
 
-        public Movie ReadMovie(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public void UpdateMovie(int id, Movie m)
         {
             GraphClient.Cypher
-                .Match("(cur_m:Movie)")
-                .Where("ID(cur_m) = {query}")
+                .Match("(movie:Movie)")
+                .Where("ID(movie) = {query}")
                 .WithParam("query", id)
-                .Set("cur_m = {m}")
+                .Set("movie = {new_movie}")
+                .WithParam("new_movie", m)
                 .ExecuteWithoutResults();
         }
 
@@ -94,9 +84,8 @@ namespace NeoMoviesCore.Common.Repositories
                 .Match("(m:Movie)")
                 .Where("ID(m) = {query}")
                 .WithParam("query", id)
-                .Delete("m")
+                .DetachDelete("movie")
                 .ExecuteWithoutResults();
-            //throw new NotImplementedException();
         }
 
     }

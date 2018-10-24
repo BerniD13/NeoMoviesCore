@@ -42,16 +42,6 @@ namespace NeoMoviesCore.Controllers
             _repo.CreateMovie(movie);
         }
 
-        // AddMovie: api/Movies
-        [HttpPost, Route("api/movies")]
-        public void AddMovie([FromBody] IEnumerable<Movie> movie)
-        {
-            // ???
-            //_repo.AddMovie(movie);
-
-        }
-
-
         // PUT: api/Movie/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Movie movie)
