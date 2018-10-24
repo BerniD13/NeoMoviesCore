@@ -1,0 +1,4 @@
+[submodule "NeoDatabase"]
+	path = NeoDatabase
+	url = C:/Repositories/UMN/CSCI4950/NeoDatabase
+	branch = origin/master
