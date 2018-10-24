@@ -1,0 +1,7 @@
+{
+  "Database": {
+    "GraphDBUrl": "http://database:7474/db/data",
+    "GraphDBUser": "neo4j",
+    "GraphDBPassword": "movies"
+  }
+}

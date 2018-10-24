@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NeoMoviesCore.Common.Repositories;
+using System.IO;
 
 namespace NeoMoviesCore
 {
@@ -14,6 +15,7 @@ namespace NeoMoviesCore
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
+                .AddJsonFile(Path.Combine(Path.Combine(env.ContentRootPath, "..", "Shared"), "SharedSettings.json"), optional: true, reloadOnChange: true)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables();
