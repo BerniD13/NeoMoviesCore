@@ -10,6 +10,10 @@ using NeoMoviesCore.Common.Model;
 using NeoMoviesCore.Common.Repositories;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
 namespace NeoMoviesCore.Controllers
 {
     [Route("graph")]
@@ -18,21 +22,29 @@ namespace NeoMoviesCore.Controllers
         private static IGraphClient GraphClient { get; set; }
         public GraphController(IOptions<DatabaseSettings> dbSettings)
         {
-            var url = dbSettings.Value.GraphDBUrl;
-            var user = dbSettings.Value.GraphDBUser;
-            var password = dbSettings.Value.GraphDBPassword;
-            /*
-   var url = "http://database:7474/db/data";
-   var user = "neo4j";
+            // var url = dbSettings.Value.GraphDBUrl;
+            // var user = dbSettings.Value.GraphDBUser;
+            // var password = dbSettings.Value.GraphDBPassword;
+
+			var url = "http://localhost:7474/db/data";
+			var user = "neo4j";
             var password = "movies";
-   */
+
             var client = new GraphClient(new Uri(url), user, password);
             client.Connect();
             GraphClient = client;
         }
-        [HttpGet]
-        public IActionResult Index()
-        {
+
+		[HttpGet]
+		public IActionResult Index()
+		{
+			return View();
+		}
+
+		[HttpGet]
+		[Route("movie")]
+		public IActionResult Get()
+		{
             var query = GraphClient.Cypher
                 .Match("(m:Movie)<-[:ACTED_IN]-(a:Person)")
                 .Return((m, a) => new {
@@ -87,6 +99,7 @@ namespace NeoMoviesCore.Controllers
             return Ok(new { elements });
         }
     }
+
     public class Data
     {
         public string name { get; set; }
