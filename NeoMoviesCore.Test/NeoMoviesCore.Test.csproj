@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\docker-compose.dcproj" />
     <ProjectReference Include="..\NeoMoviesCore.Common\NeoMoviesCore.Common.csproj" />
   </ItemGroup>
 

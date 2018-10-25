@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NeoMoviesCore.Common\NeoMoviesCore.Common.csproj" />
+    <ProjectReference Include="..\NeoMoviesCore\NeoMoviesCore.csproj" />
   </ItemGroup>
 
 </Project>
