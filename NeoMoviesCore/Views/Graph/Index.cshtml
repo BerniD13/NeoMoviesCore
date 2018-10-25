@@ -1,7 +1,25 @@
 ﻿@{
-	ViewData["Title"] = "Graph";
+    ViewData["Title"] = "Graph";
 }
 
-<h2>Index</h2>
 
-<p>Hello from our View Template!</p>
+<div id="cy"></div>
+
+<script src="~/js/cytoscape.js"></script>
+<script>
+
+    //GET the elements to setup cy
+    //$.get("/graph", function (data) {
+    //    var cy = cytoscape({
+    //        container: document.getElementById('cy'),
+    //        elements: data
+    //    });
+
+    // Run the cy
+    //    cy.layout({
+    //        name: 'circle'
+    //    }).run();
+    //});
+
+
+</script>
