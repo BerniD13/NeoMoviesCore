@@ -16,8 +16,8 @@ services:
       - "7687:7687"
     # copy the movies database from our repo to the new container. This container now hosts the Movies database and can be accessed as if running locally.
     volumes:
-      - "./Database/data:/data"
-      - "./Database/logs:/logs"
+      - "./NeoDatabase/Database/data:/data"
+      - "./NeoDatabase/Database/logs:/logs"
 
 networks:
   default:

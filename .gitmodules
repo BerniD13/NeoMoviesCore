@@ -1,0 +1,4 @@
+[submodule "NeoDatabase"]
+	path = NeoDatabase
+	url = https://github.umn.edu/lemm0038/NeoDatabase.git
+	branch = origin/master
