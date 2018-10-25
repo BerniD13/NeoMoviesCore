@@ -9,5 +9,9 @@ namespace NeoMoviesCore.Common.Model
         public string title { get; set; }
         public int released { get; set; }
         public string tagline { get; set; }
+
+        public list<Actor> { get; set; }
+        public list<Directors> { get; set; }
+        public list<Producers> { get; set; }
     }
 }
