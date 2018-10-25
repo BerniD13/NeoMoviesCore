@@ -28,17 +28,32 @@
 			var data = result['elements'];
 			var cy = cytoscape({
 				container: document.getElementById('cy'),
-				elements: [
-					{ data: { id: 'a' } },
-					{ data: { id: 'b' } },
-					{
-						data: {
-							id: 'ab',
-							source: 'a',
-							target: 'b'
-						}
-					}]
-			});
+                elements: data,
+                style: [{
+                    selector: 'node',
+                    style: {
+                        'label': 'data(name)',
+                        'background-color': '#aaa'
+                    }
+                },
+                {
+                    selector: 'node.actor',
+                    style: {
+                        'label': 'data(name)',
+                        'background-color': '#ccc',
+                    }
+                }
+                ]
+            });
+
+            //cy.on('click', 'node', function (evt) {
+            //    var node = evt.target;
+            //    console.log(node.name());
+            //});
+
+            cy.layout({
+                name: 'random'
+            }).run();
 		}
 	});
 
