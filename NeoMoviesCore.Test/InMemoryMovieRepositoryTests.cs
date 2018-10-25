@@ -125,6 +125,5 @@ namespace NeoMoviesCore.Test
             // Test not found
             CollectionAssert.AreEqual(repo.SearchMoviesByString("Tt").ToList(), empty);
         }
-
     }
 }

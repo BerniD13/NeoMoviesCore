@@ -9,7 +9,9 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeoMoviesCore.Common", "NeoMoviesCore.Common\NeoMoviesCore.Common.csproj", "{8BC36FFD-6034-4DA7-A69D-B3773905B9A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoMoviesCore.Test", "NeoMoviesCore.Test\NeoMoviesCore.Test.csproj", "{F4A9CD97-F6A1-4980-8072-BB1AB10AF40E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeoMoviesCore.Test", "NeoMoviesCore.Test\NeoMoviesCore.Test.csproj", "{F4A9CD97-F6A1-4980-8072-BB1AB10AF40E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoMoviesCore.IntegratingTests", "NeoMoviesCore.IntegratingTests\NeoMoviesCore.IntegratingTests.csproj", "{0054EF12-F3D3-4422-B5C3-4274DCA49AC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F4A9CD97-F6A1-4980-8072-BB1AB10AF40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4A9CD97-F6A1-4980-8072-BB1AB10AF40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4A9CD97-F6A1-4980-8072-BB1AB10AF40E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0054EF12-F3D3-4422-B5C3-4274DCA49AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0054EF12-F3D3-4422-B5C3-4274DCA49AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0054EF12-F3D3-4422-B5C3-4274DCA49AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0054EF12-F3D3-4422-B5C3-4274DCA49AC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
