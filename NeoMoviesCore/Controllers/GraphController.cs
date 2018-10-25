@@ -35,14 +35,13 @@ namespace NeoMoviesCore.Controllers
             GraphClient = client;
         }
 
-		[HttpGet]
 		public IActionResult Index()
 		{
 			return View();
 		}
 
 		[HttpGet]
-		[Route("movie")]
+		[Route("movies")]
 		public IActionResult Get()
 		{
             var query = GraphClient.Cypher
