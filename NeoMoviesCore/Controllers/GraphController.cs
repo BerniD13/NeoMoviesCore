@@ -26,9 +26,9 @@ namespace NeoMoviesCore.Controllers
             // var user = dbSettings.Value.GraphDBUser;
             // var password = dbSettings.Value.GraphDBPassword;
 
-			var url = "http://localhost:7474/db/data";
+			var url = "http://localhost:11001/db/data";
 			var user = "neo4j";
-            var password = "movies";
+            var password = "7565";
 
             var client = new GraphClient(new Uri(url), user, password);
             client.Connect();
