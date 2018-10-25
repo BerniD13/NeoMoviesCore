@@ -1,10 +1,4 @@
-﻿@{
-	ViewData["Title"] = "Graph";
-}
-
-
-
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+﻿<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="~/js/cytoscape.js"></script>
 
 <div id="cy"></div>
@@ -28,32 +22,34 @@
 			var data = result['elements'];
 			var cy = cytoscape({
 				container: document.getElementById('cy'),
-                elements: data,
-                style: [{
-                    selector: 'node',
-                    style: {
-                        'label': 'data(name)',
-                        'background-color': '#aaa'
-                    }
-                },
-                {
-                    selector: 'node.actor',
-                    style: {
-                        'label': 'data(name)',
-                        'background-color': '#ccc',
-                    }
-                }
-                ]
-            });
+				elements: data,
+				style: [{
+					selector: '[classes="movie"]',
+					style: {
+						'label': 'data(name)',
+						'background-color': '#ff69b4'
+					}
+				},
+				{
+					selector: '[classes="actor"]',
+					style: {
+						'label': 'data(name)',
+						'background-color': '#ADD8E6',
+					}
+				}
+				]
+			});
 
-            //cy.on('click', 'node', function (evt) {
-            //    var node = evt.target;
-            //    console.log(node.name());
-            //});
+			//cy.on('click', 'node', function (evt) {
+			//    var node = evt.target;
+			//    console.log(node.name());
+			//});
 
-            cy.layout({
-                name: 'random'
-            }).run();
+			var layout = cy.layout({
+				name: 'random'
+			});
+
+			// layout.run(); 
 		}
 	});
 

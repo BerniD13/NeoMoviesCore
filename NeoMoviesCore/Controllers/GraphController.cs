@@ -22,13 +22,13 @@ namespace NeoMoviesCore.Controllers
         private static IGraphClient GraphClient { get; set; }
         public GraphController(IOptions<DatabaseSettings> dbSettings)
         {
-            var url = dbSettings.Value.GraphDBUrl;
-            var user = dbSettings.Value.GraphDBUser;
-            var password = dbSettings.Value.GraphDBPassword;
+            //var url = dbSettings.Value.GraphDBUrl;
+            //var user = dbSettings.Value.GraphDBUser;
+            //var password = dbSettings.Value.GraphDBPassword;
 
-			// var url = "http://localhost:11001/db/data";
-			// var user = "neo4j";
-            // var password = "7565";
+			var url = "http://localhost:7474/db/data";
+			var user = "neo4j";
+            var password = "movies";
 
             var client = new GraphClient(new Uri(url), user, password);
             client.Connect();
