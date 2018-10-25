@@ -12,9 +12,9 @@ namespace NeoMoviesCore.Common.Repositories
             var movieList = new List<Movie>();
 
             var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + s;
+            testMovie.Title = "Movie";
+            testMovie.Released = 2000;
+            testMovie.Tagline = "Test movie, searched string: " + s;
 
             movieList.Add(testMovie);
 
@@ -25,9 +25,9 @@ namespace NeoMoviesCore.Common.Repositories
             var movieList = new List<Movie>();
 
             var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + title;
+            testMovie.Title = "Movie";
+            testMovie.Released = 2000;
+            testMovie.Tagline = "Test movie, searched string: " + title;
 
             movieList.Add(testMovie);
 
@@ -38,9 +38,9 @@ namespace NeoMoviesCore.Common.Repositories
             var movieList = new List<Movie>();
 
             var testMovie = new Movie();
-            testMovie.title = "Movie";
-            testMovie.released = 2000;
-            testMovie.tagline = "Test movie, searched string: " + actor;
+            testMovie.Title = "Movie";
+            testMovie.Released = 2000;
+            testMovie.Tagline = "Test movie, searched string: " + actor;
 
             movieList.Add(testMovie);
 

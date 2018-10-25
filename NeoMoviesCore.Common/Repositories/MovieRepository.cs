@@ -25,12 +25,26 @@ namespace NeoMoviesCore.Common.Repositories
 
         public IEnumerable<Movie> GetMoviesByActor(string actor)
         {
-            throw new NotImplementedException();
+            var data = GraphClient.Cypher
+               .Match("(m:Movie)<-[:ACTED_IN]-(p:Person)")
+               .Where("p.name =~ {query}")
+               .WithParam("query", "(?i).*" + actor + ".*")
+               .Return<Movie>("distinct m")
+               .Results.ToList();
+
+            return data;
         }
 
         public IEnumerable<Movie> GetMoviesByTitle(string title)
         {
-            throw new NotImplementedException();
+            var data = GraphClient.Cypher
+               .Match("(m:Movie)")
+               .Where("m.title =~ {query}")
+               .WithParam("query", "(?i).*" + title + ".*")
+               .Return<Movie>("distinct m")
+               .Results.ToList();
+
+            return data;
         }
 
         public IEnumerable<Movie> SearchMoviesByString(string s)

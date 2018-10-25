@@ -6,8 +6,10 @@ namespace NeoMoviesCore.Common.Model
 {
     public class Movie
     {
-        public string title { get; set; }
-        public int released { get; set; }
-        public string tagline { get; set; }
+        public string Title { get; set; }
+        public int Released { get; set; }
+        public string Tagline { get; set; }
+        
+        public List<Tuple<Person, MovieRole>> Crew { get; set; }
     }
 }
